@@ -1,0 +1,31 @@
+<a href="{% url 'app:flavor_list' %}">View all records</a>
+
+<h2>All Students</h2>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Roll</th>
+        <th>Branch</th>
+        <th>Course</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for f in flavors %}
+    <tr>
+        <td>{{ f.name }}</td>
+        <td>{{ f.Email }}</td>
+        <td>{{ f.phone_no }}</td>
+        <td>{{ f.roll_no }}</td>
+        <td>{{ f.Branch }}</td>
+        <td>{{ f.course }}</td>
+
+        <td>
+            <a href="{% url 'app:update_flavor' f.id %}">Edit</a> |
+            <a href="{% url 'app:delete_flavor' f.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
