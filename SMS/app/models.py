@@ -1,6 +1,5 @@
 from django.db import models
-
-class Flavor(models.Model):
+class Student(models.Model):
     name = models.CharField(max_length=100)
     Email = models.CharField(max_length=100, default="")
     phone_no = models.IntegerField(default=0)

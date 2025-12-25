@@ -1,7 +1,7 @@
 from django import forms
-from .models import Flavor
+from .models import Student
 
-class FlavorForm(forms.ModelForm):
+class StudentForm(forms.ModelForm):
     class Meta:
-        model = Flavor
+        model = Student
         fields = "__all__"

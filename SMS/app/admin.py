@@ -1,5 +1,4 @@
 from django.contrib import admin
+from .models import Student
 
-from .models import Flavor
-
-admin.site.register(Flavor)
+admin.site.register(Student)

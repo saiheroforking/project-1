@@ -1,30 +1,17 @@
 from django.shortcuts import render, redirect
-from .models import Flavor
-from  .forms import FlavorForm
+from .forms import StudentForm
 
-def flavor_list(request):
-    flavors = Flavor.objects.all()
-    return render(request, "flavor_list.html", {"flavors": flavors})
-
-def update_flavor(request, id):
-    flavor = Flavor.objects.get(id=id)
-
+def student_form(request):
     if request.method == "POST":
-        form = FlavorForm(request.POST, instance=flavor)
+        form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("app:flavor_list")
+            return redirect("app:success")
     else:
-        form = FlavorForm(instance=flavor)
+        form = StudentForm()
 
-    return render(request, "form.html", {"form": form})
+    return render(request, "home_page.html", {"form": form})
 
-def delete_flavor(request, id):
-    flavor = Flavor.objects.get(id=id)
 
-    if request.method == "POST":
-        flavor.delete()
-        return redirect("app:flavor_list")
-
-    return render(request, "confirm_delete.html", {"flavor": flavor})
-
+def success(request):
+    return render(request, "success.html")
