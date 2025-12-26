@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import StudentForm
+from .models import Student
 
 def student_form(request):
     if request.method == "POST":
@@ -15,3 +16,9 @@ def student_form(request):
 
 def success(request):
     return render(request, "success.html")
+
+
+def Show(request):
+    show_details = Student.objects.all()
+    return render(request,"Show_Details.html",{"Show_details":show_details})
+
