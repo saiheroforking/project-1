@@ -18,17 +18,22 @@
             <th>Course</th>
             <th>Actions</th>
         </tr>
+
         {% for i in Show_details %}
         <tr>
-            <td>{{i.name}}</td>
-            <td>{{i.Email}}</td>
-            <td>{{i.phone_no}}</td>
-            <td>{{i.roll_no}}</td>
-            <td>{{i.Branch}}</td>
-            <td>{{i.course}}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.Email }}</td>
+            <td>{{ i.phone_no }}</td>
+            <td>{{ i.roll_no }}</td>
+            <td>{{ i.Branch }}</td>
+            <td>{{ i.course }}</td>
             <td>
-                <a href="">Edit</a>
-                <a href="">Delete</a>
+                <a href = "{% url 'app:update_details' i.id %}" > Edit</a>
+                
+                <a href="{% url 'app:delete_student' i.id %}"
+                    onclick="return confirm('Are you sure you want to delete this record?');">
+                    Delete
+                </a>
             </td>
         </tr>
         {% endfor %}
