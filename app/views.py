@@ -18,9 +18,9 @@ def success(request):
     return render(request, "success.html")
 
 
-def Show(request):
+def show(request):
     show_details = Student.objects.all()
-    return render(request,"Show_Details.html",{"Show_details":show_details})
+    return render(request, "Show_Details.html", {"show_details": show_details})
 
 def update_details(request, pk):
     student = get_object_or_404(Student, id=pk)
@@ -29,13 +29,14 @@ def update_details(request, pk):
         form = StudentForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            return redirect('app:Show')
+            return redirect("app:show")
     else:
         form = StudentForm(instance=student)
 
-    return render(request, 'update_details.html', {'form': form})
+    return render(request, "update_details.html", {"form": form})
+
 
 def delete_student(request, id):
     student = get_object_or_404(Student, id=id)
     student.delete()
-    return redirect('app:Show')
+    return redirect("app:show")
