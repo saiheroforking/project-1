@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            r"C:\Users\notla\OneDrive\Desktop\python\Django_project\project-1\SMS\app\Templates",
+            BASE_DIR / 'Template'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -120,5 +120,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / "static"
 ]
