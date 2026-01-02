@@ -11,16 +11,16 @@ def student_form(request):
     else:
         form = StudentForm()
 
-    return render(request, "home_page.html", {"form": form})
+    return render(request, "app/home_page.html", {"form": form})
 
 
 def success(request):
-    return render(request, "success.html")
+    return render(request, "app/success.html")
 
 
 def show(request):
     show_details = Student.objects.all()
-    return render(request, "Show_Details.html", {"show_details": show_details})
+    return render(request, "app/Show_Details.html", {"show_details": show_details})
 
 def update_details(request, pk):
     student = get_object_or_404(Student, id=pk)
@@ -33,7 +33,7 @@ def update_details(request, pk):
     else:
         form = StudentForm(instance=student)
 
-    return render(request, "update_details.html", {"form": form})
+    return render(request, "app/update_details.html", {"form": form})
 
 
 def delete_student(request, id):
